@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% block title %}Certifications - Resume{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Certifications</h2>
+  <a class="btn btn-outline-dark" href="/resume/download/">Download Resume</a>
+  </div>
+
+<ul class="list-group">
+  {% for c in items %}
+  <li class="list-group-item">
+    <div class="d-flex justify-content-between">
+      <div>
+        <strong>{{ c.name }}</strong> — {{ c.issuer }}
+        <div class="text-muted small">{{ c.issue_date|date:"M Y" }}</div>
+      </div>
+      <div class="text-nowrap">
+        {% if c.credential_url %}<a class="btn btn-sm btn-outline-secondary" target="_blank" href="{{ c.credential_url }}">Verify</a>{% endif %}
+      </div>
+    </div>
+    {% if c.credential_id %}<div class="small text-muted mt-1">ID: {{ c.credential_id }}</div>{% endif %}
+  </li>
+  {% empty %}
+  <li class="list-group-item text-muted">No certifications yet.</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+
+

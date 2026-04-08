@@ -1,0 +1,79 @@
+{% extends 'app/base.html' %}
+{% block title %}Home - Resume{% endblock %}
+{% block content %}
+<section class="hero p-5 rounded-3 mb-4">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-7">
+        <h1 class="display-5 fw-bold">Hello, I'm John Doe</h1>
+        <p class="lead">A passionate Software Developer specialized in building clean, scalable web applications.</p>
+        <div class="d-flex gap-2">
+          <a class="btn btn-primary" href="/profile/">View Profile</a>
+          <a class="btn btn-outline-dark" href="/skills/">See Skills</a>
+        </div>
+      </div>
+      <div class="col-md-5 text-center mt-4 mt-md-0">
+        <img class="img-fluid rounded-circle shadow" alt="Profile" src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" width="220" height="220" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="row g-4 mb-5">
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Profile</h5>
+        <p class="card-text">Summary, experience, and contact details.</p>
+        <a href="/profile/" class="btn btn-sm btn-primary">Explore</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Education</h5>
+        <p class="card-text">Degrees and certifications.</p>
+        <a href="/education/" class="btn btn-sm btn-primary">Explore</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">Skills & Hobbies</h5>
+        <p class="card-text">Technologies I love and fun interests.</p>
+        <div class="d-flex gap-2">
+          <a href="/skills/" class="btn btn-sm btn-outline-primary">Skills</a>
+          <a href="/hobbies/" class="btn btn-sm btn-outline-secondary">Hobbies</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mb-4">
+  <div class="p-4 border rounded-3 bg-light">
+    <h4 class="mb-3">Join the newsletter</h4>
+    <form method="post" class="row gy-2 gx-2 align-items-center">
+      {% csrf_token %}
+      <div class="col-sm-8 col-12">
+        {{ form.email }}
+      </div>
+      <div class="col-sm-4 col-12">
+        <button class="btn btn-dark w-100" type="submit">Subscribe</button>
+      </div>
+    </form>
+    <small class="text-muted">Get occasional updates about new projects.</small>
+  </div>
+  <p class="mt-2 text-muted small">We respect your privacy. Unsubscribe anytime.</p>
+  <hr>
+  <div class="d-flex flex-wrap gap-2">
+    <a class="btn btn-outline-dark" href="/projects/">Featured Projects</a>
+    <a class="btn btn-outline-secondary" href="/certifications/">Certifications</a>
+    <a class="btn btn-dark" href="/resume/download/">Download Resume</a>
+  </div>
+  </section>
+{% endblock %}
+
+
